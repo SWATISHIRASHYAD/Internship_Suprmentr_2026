@@ -1,0 +1,57 @@
+Numpy Library
+print("Hello world")
+#Numpy library is used for numerical computing in Python. 
+# It provides support for large,multi-dimensional arrays and matrices, along with a collection of mathematical functions to operate on these arrays efficiently. 
+# Numpy is widely used in scientific computing, data analysis, and machine learning due to its powerful capabilities and performance advantages over traditional Python lists.
+# Major difference betwwen list and numpy is that numpy arrays are homogeneous, meaning they can only contain elements of the same data type, while lists can contain elements of different data types.
+# Numpy arrays are more memory efficient and faster for numerical operations compared to lists, as they are implemented in C and optimized for performance.
+numbers=[1,2,3,4,5,6]
+print(numbers) # prints with commas
+import numpy as np
+numbers=np.array([1,2,3,4,5,6])
+print(numbers) # prints without commas
+print(type(numbers)) # prints the type of the variable, which is numpy array
+#2D array
+matrix=np.array([[1,2,3],[4,5,6]])
+print(matrix)
+#3D array
+tensor=np.array([[[1,2],[3,4]],[[5,6],[7,8]]])
+print(tensor)
+print(matrix.shape) # shape of the matrix, which is (2,3) (rows,columns)
+print(matrix.ndim) # number of dimension, which is 2
+print(matrix.size) # total elements, which is 6
+
+#Accessing elements of the matrix
+print(matrix[1][1])
+
+#python way
+a=[1,2,3]
+b=[4,5,6]
+c=a+b
+print(c) # prints [1,2,3,4,5,6]
+
+a=np.array([1,2,3])
+b=np.array([4,5,6])
+c=a+b
+print(c) # prints [5,7,9] element-wise addition
+
+#numpy performs operations on entire array simultaneously, which is called vectorization. 
+#This allows for faster computations compared to traditional loops in Python.
+#numpy takes lesstime for execution than python.
+
+marks=np.array([80,90,70])
+print(np.mean(marks)) # mean of the marks, which is 80.0
+print(np.median(marks)) # median of the marks, which is 80.0
+print(np.std(marks)) # standard deviation of the marks, which is 8.16496580927726   
+print(np.max(marks))
+print(np.min(marks))
+print(marks>70) # returns a boolean array [ True  True False] indicating which marks are greater than 70
+
+image=np.random.randint(0,255,(3,3))
+print(image) # prints a 3x3 array with random integers between 0 and 255, simulating a grayscale image
+
+zeros=np.zeros((2,3))
+ones=np.ones((2,3))
+
+newarr=np.arange(1,11)
+print(newarr[newarr%2==0]) # prints even numbers from 1 to 10, which are [2 4 6 8 10]
