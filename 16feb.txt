@@ -1,0 +1,131 @@
+#Data Cleaning, Missing values, Data preprocessing
+#What is data cleaning? 
+#Data cleaning is the process of identifying and correcting or removing errors, inconsistencies, and inaccuracies in a dataset to improve its quality and reliability for analysis.
+#common problems: missing values, duplicate rows, wrong data types, inconsistent formatting, outliers, and irrelevant data.
+
+import pandas as pd
+import numpy as np
+data={'Name':['Alice','Bob','Charlie','David',None],
+      'Age':[25,30,None,40,45],
+      'Salary':[50000,60000,55000,None,70000],
+      'Department':['HR','iT','Finance','iT','HR']}
+
+df=pd.DataFrame(data)
+print(df)
+
+#Step 1:Understand the data
+print("", df.info()) # gives information about the dataframe, including data types and non-null counts
+print(df.describe()) # gives statistical summary of the numerical columns in the dataframe
+print(df.shape)
+print(df.columns) # prints the column names of the dataframe
+
+#Step 2:Handle duplicates
+print("Duplicates",df.duplicated())
+df=df.drop_duplicates()
+print("After Removing duplicates",df)
+
+#step3 :Standardizing text data
+# #IT and iT are same but they are different in the dataframe, so we will convert all the text to lowercase
+df['Department']=df['Department'].str.lower()
+print("Final casing\n",df)
+
+# #step 4 :Handle missing values
+# '''
+# NaN=Not a Number, it is used to represent missing values in a dataset.
+# None
+# empty cells
+# '''
+# #Check for missing values
+
+df.isnull() # returns a boolean dataframe indicating which values are missing (True) and which are not (False)
+print("NUll sum",df.isnull().sum()) # prints the count of missing values in each column of the dataframe
+# #remove missing rows
+df=df.dropna() # removes rows with any missing values
+print("Remove missing values",df)
+
+df.dropna(axis=1) # removes columns with any missing values
+# #axis=0 means drop rows, axis=1 means drop columns
+# #axis=1 is used to specify that we want to drop columns instead of rows. By default, dropna() drops rows (axis=0), but if we set axis=1, it will drop columns that contain any missing values.
+print(df)
+
+#fill missing values with mean/median for numeraical values
+df['Age']=df['Age'].fillna(df['Age'].mean(),inplace=True) # fills missing values in the 'Age' column with the mean of the 'Age' column
+df['Salary']=df['Salary'].fillna(df['Salary'].median(),inplace=True) # fills missing values in the 'Salary' column with the median of the 'Salary' column
+print(df)
+
+df['Department']=df['Department'].fillna(df['Department'].mode()[0],inplace=True) # fills missing values in the 'Department' column with the mode of the 'Department' column (the most frequent value)
+print(df)
+
+
+#Data Preprocessing
+#Convert data into model-ready format
+#1. Encoding categorical data
+df=pd.get_dummies(df,columns=['Department'])
+print("Encoding categorical data\n",df)
+
+#Feature scaling is the process of normalizing or standardizing the range of features in a dataset to ensure that they are on a similar scale, which can improve the performance of machine learning algorithms.
+'''
+
+'''
+#normalization(0 to 1 scaling)
+
+from sklearn.preprocessing import MinMaxScaler
+scaler=MinMaxScaler()
+df[['Age','Salary']]=scaler.fit_transform(df[['Age','Salary']])
+print("Normalization\n",df) 
+
+#standardization (mean=0, std=1)
+from sklearn.preprocessing import StandardScaler
+scaler=StandardScaler() 
+df[['Age','Salary']]=scaler.fit_transform(df[['Age','Salary']])
+print("Standardization\n",df)
+
+#removing outliers
+#Outliers are data points that significantly differ from the majority of the data and can skew analysis
+q1=df['Salary'].quantile(0.25) # calculates the first quartile (25th percentile) of the 'Salary' column
+q3=df['Salary'].quantile(0.75) # calculates the third quartile (75th percentile) of the 'Salary' column
+iqr=q3-q1 # calculates the interquartile range (IQR) by subtracting the first quartile from the third quartile
+
+df=df[(df['Salary']>=q1-1.5*iqr) & (df['Salary']<=q3+1.5*iqr)] # filters the dataframe to include only rows where the 'Salary' value is within the range defined by the first quartile minus 1.5 times the IQR and the third quartile plus 1.5 times the IQR, effectively removing outliers from the 'Salary' column
+print("Removing outliers\n",df)
+
+#splitting data, train and test data
+
+'''
+Outlier is a data that is very far from the data points
+[25, 30, 28, 29, 27, 1000]
+1000 is extremely high compared to others, that is a outlier
+
+without outlier->averaage(mean)~ 28.166666666666668
+with outlier->average(mean)~ 200
+
+types of outliers
+1.Global outlier ->very far from entire dataset
+2.Contextual outlier -> far from data points in a specific context
+3.Collective outlier -> a group of data points that are far from the rest of the dataset
+
+
+'''
+
+#Normalization is scaling data to fixed range usually 0 to 1, while standardization is scaling data to have mean 0 and standard deviation 1. Normalization is useful when the data does not follow a normal distribution, while standardization is useful when the data follows a normal distribution. Normalization can be affected by outliers, while standardization is less sensitive to outliers.
+'''
+why?
+
+age:20-50
+salary:20000-50000
+
+salary is much higher than age, so it will dominate the model, and the model will not learn from age, it will only learn from salary.
+normalization will scale both age and salary to 0 to 1, so the model will learn from both age and salary equally.
+
+x= (x-min)/(max-min) # normalization formula
+
+[20,30,40]
+result=[0.0,0.5,1.0]
+'''
+
+#Standardization
+'''
+it is nothing but scaling the data to have mean 0 and standard deviation 1. 
+formula: z=(x-mean)/std
+'''
+
