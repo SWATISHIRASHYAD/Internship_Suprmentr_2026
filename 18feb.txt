@@ -1,0 +1,38 @@
+#DAta visualization
+import plot as plt
+
+months=['Jan','Feb','Mar','Apr','May','Jun']
+sales=[100,150,200,250,300,350]
+
+plt.plot(months,sales, ls='--', marker='o', color='black',mec='red',mfc='yellow' ) # ls is line style, marker is the shape of the point, color is the color of the line
+plt.xlabel('Months')
+plt.ylabel('Sales')
+plt.title('Monthly Sales')
+plt.show()
+
+plt.bar(months,sales,color='blue')
+plt.xlabel('Months')
+plt.ylabel('Sales')
+plt.title('Monthly Sales')
+plt.show()
+
+#histogram
+ages=[20,22,25,30,35,40,45,50,55,60]
+
+
+plt.hist(ages, bins=5, color='green')
+plt.xlabel('Age')
+plt.ylabel('Frequency')
+plt.title('Age Distribution')
+plt.show()
+
+#scatter plot
+ages=[20,22,25,30,35,40,45,50,55,60]
+salaries=[20000,25000,30000,35000,40000,45000,50000,55000,60000,65000]
+plt.scatter(ages,salaries,color='red')
+plt.xlabel('Age')
+
+plt.ylabel('Salary')
+plt.title('Age vs Salary')
+plt.show()
+
