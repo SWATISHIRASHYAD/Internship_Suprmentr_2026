@@ -1,0 +1,81 @@
+#Multiple Linear Regression
+#Let us predict house pricing using area and bedrooms:
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.linear_model import LinearRegression
+
+
+data={'Area':[1000,1500,2000,2500,3000],
+      "Bedrooms":[2,3,3,4,4],
+      "Price":[50,70,80,100,120]}
+df=pd.DataFrame(data)
+print(df)
+
+X=df[['Area','Bedrooms']]
+y=df['Price']
+model=LinearRegression()
+
+model.fit(X,y)
+
+new_house=[[3500,5]]
+predicted_price=model.predict(new_house)
+print("Predicted price for the new house:",predicted_price)
+
+#Assumptions of linear regression
+
+'''
+price=b0+b1*area+b2*bedrooms
+now model finds:
+impact of area,impact of bedrooms, and the intercept
+1.MSE 
+lower=better
+
+2.R2 score
+range:0 to 1
+0.9->excellent
+0.7->good
+0.5->average
+<0.3->poor
+'''
+
+#assumptions 
+#1.Linearity: relationship between independent and dependent variables is linear
+#2.Independence: observations are independent
+#3.Homoscedasticity: constant variance of errors
+#4.Normality: errors are normally distributed
+#no multicollinearity: independent variables are not highly correlated with each other
+
+'''
+
+Broadcast to all
+Task 1: Car Price Prediction (Multiple Features)
+
+Dataset features:
+
+Engine Size
+
+Mileage
+
+Age
+
+Price
+
+Steps:
+
+Create DataFrame
+
+Train model
+
+Predict price for:
+
+Engine = 1500
+
+Mileage = 20
+
+Age = 3
+
+Print coefficients
+
+Interpret which feature impacts price most
+'''
