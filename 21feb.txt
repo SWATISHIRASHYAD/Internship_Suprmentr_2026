@@ -1,0 +1,2 @@
+What is machine learning?
+Machine learning is a part of AI where instead of telling the computer every rule, we let it learn from data.
