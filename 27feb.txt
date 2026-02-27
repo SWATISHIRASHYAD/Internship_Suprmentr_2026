@@ -1,0 +1,117 @@
+#KNN algorithm
+'''
+KNN:K-Nearest Neighbors
+KNN is a simple, easy-to-implement supervised machine learning algorithm that can be used for both classification and regression tasks. The KNN algorithm assumes that similar data points are close to each other in the feature space.
+it is supervised algorithm.
+*Classification
+* regression
+
+It is:
+Instance based
+non-parametric
+lazy learning algorithm
+
+
+"IMagine you move to a new apartment and want to know if the area is good or bad."
+good or bad?
+you ask your 5 to 6 nearest neighbors first.
+if 4 say "good"->good area
+
+distance metrics:
+Who is nearest?
+1.Euclidean distance:
+formula: d=√((x2-x1)^2+(y2-y1)^2)
+
+ex:
+point A(2,3) and point B(5,7)
+d=√((5-2)^2+(7-3)^2)=√(3^2+4^2)=√(9+16)=√25=5
+
+2.Manhattan distance:
+formula: d=|x2-x1|+|y2-y1|
+
+3.Minkowski distance:
+formula: d=((|x2-x1|^p)+(|y2-y1|
+
+4.Hamming distance:
+used for categorical data
+
+Feature Scaling:Distance based algo = scaling is mandatory
+StandardScaler()
+
+'''
+
+'''
+working of knn:
+1.chooose k
+2.calculate distance from new point to all training points
+3.sort distances
+4.pick k nearest neighbors
+5.majority vote for classification
+6.average value for regression
+'''
+#import libraries
+import numpy as np
+from collections import Counter
+
+#step1: create datasets
+
+X_train=np.array([[150,50],[160,60],[170,80],[190,100],[200,120]])
+y_train=np.array(['fit','fit','unfit','unfit','unfit'])
+
+#step2: ED function
+def ed(x1,x2):
+    return np.sqrt(np.sum((x1-x2)**2))
+
+def knn(X_train,y_train,test_point,k=3):
+    distances=[]
+
+    for i in range(len(X_train)):
+        distance=ed(X_train[i],test_point)
+        distances.append((distance,y_train[i]))
+    distances.sort(key=lambda x:x[0])
+    neighbors=distances[:k]
+    labels=[label for _,label in neighbors]
+    most_common=Counter(labels).most_common(1)
+    return most_common[0][0]
+
+#test point
+test_point=np.array([165,65])
+#predict
+prediction=knn(X_train,y_train,test_point,k=3)
+print("Predicted class for test point:",prediction)
+
+
+#using scikit learn:
+
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.model_selection import train_test_split
+from sklearn.datasets import load_iris
+from sklearn.metrics import accuracy_score
+from sklearn.preprocessing import StandardScaler
+import numpy as np
+
+#load dataset
+data=load_iris()
+X=data.data
+y=data.target
+#train test split
+X_train,X_test,y_train,y_test=train_test_split(X,y,test_size=0.2,random_state=42)
+#feature scaling
+scaler=StandardScaler()
+X_train=scaler.fit_transform(X_train)
+X_test=scaler.transform(X_test)
+#create model
+model=KNeighborsClassifier(n_neighbors=5,metric='euclidean')
+#train model
+model.fit(X_train,y_train)
+#predict
+y_pred=model.predict(X_test)
+#accuracy
+accuracy=accuracy_score(y_test,y_pred)
+print("Accuracy:",accuracy)
+
+
+
+
+
+
