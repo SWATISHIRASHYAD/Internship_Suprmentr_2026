@@ -1,0 +1,58 @@
+# Import required libraries
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.datasets import load_breast_cancer
+from sklearn.model_selection import train_test_split
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.metrics import accuracy_score
+
+# Load dataset
+data = load_breast_cancer()
+X = data.data
+y = data.target
+
+# Split dataset
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42
+)
+
+# Lists to store accuracy values
+k_values = range(1, 16)
+euclidean_acc = []
+manhattan_acc = []
+
+# Loop for different K values
+for k in k_values:
+    
+    # Euclidean Distance (default)
+    knn_euclidean = KNeighborsClassifier(n_neighbors=k, metric='euclidean')
+    knn_euclidean.fit(X_train, y_train)
+    y_pred_euclidean = knn_euclidean.predict(X_test)
+    euclidean_acc.append(accuracy_score(y_test, y_pred_euclidean))
+    
+    # Manhattan Distance
+    knn_manhattan = KNeighborsClassifier(n_neighbors=k, metric='manhattan')
+    knn_manhattan.fit(X_train, y_train)
+    y_pred_manhattan = knn_manhattan.predict(X_test)
+    manhattan_acc.append(accuracy_score(y_test, y_pred_manhattan))
+
+# Plot Accuracy vs K
+plt.figure(figsize=(8,5))
+plt.plot(k_values, euclidean_acc, marker='o', label='Euclidean')
+plt.plot(k_values, manhattan_acc, marker='s', label='Manhattan')
+
+plt.title('Accuracy vs K Value')
+plt.xlabel('K Value')
+plt.ylabel('Accuracy')
+plt.xticks(k_values)
+plt.legend()
+plt.grid(True)
+plt.show()
+
+# Print best K values
+print("Best Euclidean Accuracy:", max(euclidean_acc),
+      "at K =", euclidean_acc.index(max(euclidean_acc)) + 1)
+
+print("Best Manhattan Accuracy:", max(manhattan_acc),
+      "at K =", manhattan_acc.index(max(manhattan_acc)) + 1)
+      
