@@ -1,0 +1,50 @@
+'''
+K means clustering 
+In a customers, we have 5 features, age, income, spending score, savings and debt. We want to cluster the customers
+ into 3 groups based on these features.If we group similar customers together, WE can discover the pattern.
+
+ what is unsupervised learning?
+ it is a type of ML, no labeled output is given, algorithm finds the hidden pattern.
+
+ Types:
+ 1. clustering: Group similar data points
+ ex.customer segmentation, document grouping, image segmentation
+
+ 2.Association: Find relationships
+ ex., market basket analysis, recommendation systems
+
+'''
+
+'''
+K-MEANS CLUSTERING:
+groups the data into K clusters.
+
+customer data:
+age   income
+22     30k
+23     28k
+45     90k
+46     88k
+
+cl1:young costumers
+cl2: HIgn income customers
+
+step1:choose k(no. of groups)
+step2:initialize centroids(randomly select k data points as initial centroids)
+step3:assign data points to nearest centroid
+    each data point goes to closwst centroid, forming clusters
+    point=(2,3)
+    centroid1=(1,1)
+    centroid2=(5,6)
+
+step4:update centroids by calculating mean of assigned data points
+    cluster points:(2,3) (3,4) (4,5)
+    New centroid=((2+3+4)/3, (3+4+5)/3)=(3,4)
+step5:repeat steps 3 and 4 until convergence (centroids do not change significantly
+assign->update->assign->update->convergence
+
+
+'''
+
+
+
