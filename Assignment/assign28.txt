@@ -1,0 +1,18 @@
+# Assignment (11/04/2026)
+
+# Assignment Name : Detection Brainstorm
+# Description : List 5 uses of face/object detection and design one solution.
+
+5 Use Cases
+Face unlock in smartphones
+Attendance system using face recognition
+Traffic monitoring using object detection
+Security surveillance
+Self-driving cars
+🧠 Designed Solution (Example)
+
+Smart Attendance System
+
+Input → Camera feed
+Process → Face detection + recognition
+Output → Attendance marked automatically
