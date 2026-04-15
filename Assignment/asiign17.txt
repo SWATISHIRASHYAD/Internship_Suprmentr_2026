@@ -1,0 +1,21 @@
+# Assignment (19/03/2026)
+
+# Assignment Name : Mini Project Proposal
+# Description : Submit a 1-page proposal with problem, dataset, algorithm, expected output.
+
+# Title: Student Performance Prediction System
+
+# Problem:
+# Students struggle to track performance. Predicting marks helps early improvement.
+
+# Dataset:
+# Study hours, attendance, previous marks
+
+# Algorithm:
+# Linear Regression
+
+# Expected Output:
+# Predicted marks based on input features
+
+# Benefits:
+# Helps students improve planning and performance
