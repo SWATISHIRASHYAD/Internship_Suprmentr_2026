@@ -1,0 +1,25 @@
+# Assignment (20/03/2026)
+
+# Assignment Name : Text Challenges
+# Description :Collect 20 messy sentences and identify slang, emojis, typos; explain preprocessing needed.
+
+1. omg this clg is sooo gud 😂
+2. I cant undrstand ths 😭
+3. Hey!!! hw r u???
+4. lol that was funny 🤣
+5. im sooo tireddd
+6. wat r u doing??
+7. this is gr8 👍
+8. i luv thisss ❤️
+9. pls hlp me asap!!
+10. gud mrng ☀️
+11. whyyyy 😡
+12. okkkk fine
+13. broooo come fast
+14. thnks alottt
+15. see u tmrw
+16. idk wht to do
+17. soooo boringgg
+18. u r awsm 🔥
+19. omg no wayyy
+20. plzz reply
