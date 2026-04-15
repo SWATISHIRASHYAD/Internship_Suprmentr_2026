@@ -1,0 +1,54 @@
+*Assignment (09/02/2026)* 
+*Assignment Name* :AI Around Me 
+*Description* : List 10 real-life AI applications you use daily and explain how ML might work behind each in 1–2 lines.
+
+List of 10 Real-Life AI Applications
+1. Google Maps
+
+Provides real-time traffic updates and route suggestions.
+➡️ ML analyzes historical traffic data and user patterns to predict fastest routes.
+
+2. YouTube
+
+Recommends videos based on your interests.
+➡️ ML uses recommendation algorithms based on watch history and user behavior.
+
+3. Instagram
+
+Shows personalized feed and reels.
+➡️ ML ranks posts using engagement patterns like likes, shares, and time spent.
+
+4. Google Assistant
+
+Responds to voice commands and queries.
+➡️ ML uses speech recognition and NLP to understand and process language.
+
+5. Amazon
+
+Suggests products you may like.
+➡️ ML uses collaborative filtering and browsing history to recommend items.
+
+6. Netflix
+
+Recommends movies and shows.
+➡️ ML predicts preferences using viewing patterns and ratings.
+
+7. Gmail
+
+Filters spam emails automatically.
+➡️ ML classifies emails based on patterns and previous spam data.
+
+8. Google Photos
+
+Automatically organizes photos and detects faces.
+➡️ ML uses image recognition and clustering techniques.
+
+9. Spotify
+
+Creates personalized playlists.
+➡️ ML analyzes listening habits and similarities between songs.
+
+10. Phone Unlock (Face ID/Fingerprint)
+
+Unlocks phone using face or fingerprint.
+➡️ ML uses pattern recognition and deep learning for biometric matching.
