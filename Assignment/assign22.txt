@@ -1,0 +1,11 @@
+# Assignment (27/03/2026)
+
+# Assignment Name : Semantic Meaning
+# Description : Find 5 word pairs and explain semantic similarity.
+
+Word Pairs
+Car – Automobile → Same meaning
+Big – Large → Similar meaning
+Happy – Joyful → Similar emotion
+Fast – Quick → Similar speed
+Smart – Intelligent → Same concept

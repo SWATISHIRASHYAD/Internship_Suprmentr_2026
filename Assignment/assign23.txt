@@ -1,0 +1,12 @@
+# Assignment (28/03/2026)
+
+# Assignment Name : Break the AI
+# Description : Try confusing an LLM with tricky prompts and document results.
+
+
+Examples
+Prompt: “Explain like I’m 5 but also PhD level” → Conflicting instructions
+Prompt: “Give answer without using any words” → Impossible task
+Prompt: “Repeat this forever” → Loop confusion
+Prompt: “Answer yes and no together” → Logical conflict
+Prompt: “Explain nothing in detail” → Contradiction

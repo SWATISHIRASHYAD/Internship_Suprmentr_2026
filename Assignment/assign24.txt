@@ -1,0 +1,17 @@
+# Assignment (30/03/2026)
+
+# Assignment Name : Prompt Engineer
+# Description : Write prompts for resume, business idea, study plan and compare weak vs strong prompts.
+
+Examples
+Resume
+Weak → “Write resume”
+Strong → “Create a professional resume for a CSE student with Python and ML skills”
+
+Business Idea
+Weak → “Give idea”
+Strong → “Suggest a low-cost startup idea for college students in India”
+
+Study Plan
+Weak → “Make plan”
+Strong → “Create a 30-day study plan to learn Python basics”
