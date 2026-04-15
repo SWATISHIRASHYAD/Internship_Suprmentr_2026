@@ -1,0 +1,20 @@
+# *Assignment (10/03/2026)*
+
+# *Assignment Name* : Spam Classifier Thinking
+# *Description* : Design a spam detection system: features, data needed, possible mistakes.
+
+🔹Features
+Email text content
+Presence of keywords (free, win, offer)
+Number of links
+Sender email address
+Message length
+🔹 Data Needed
+Collection of emails labeled as Spam / Not Spam
+Large dataset for better accuracy
+Text preprocessing (cleaning, tokenization)
+🔹 Possible Mistakes
+Important emails marked as spam (False Positive)
+Spam emails marked as normal (False Negative)
+Overfitting on training data
+Misclassification due to new/unseen words
